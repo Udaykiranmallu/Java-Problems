@@ -1,0 +1,26 @@
+package Day1;
+
+import java.util.Scanner;
+
+public class kyc {
+    public static void main(String[] args) {
+        Scanner shanmugha = new Scanner(System.in);
+        String name="",pan="",address="";long aadhaar=0L,mobile=0L;
+        System.out.println("Welcome to the shanmugha bank");
+        System.out.println("Let me know your name");
+        name = shanmugha.nextLine();
+        System.out.println("Let me know the address");
+        address = shanmugha.nextLine();
+        System.out.println("Enter the pan number");
+        pan = shanmugha.next();
+        System.out.println("");
+        mobile = shanmugha.nextLong();
+        System.out.println("let me know your aadhaar");
+        aadhaar = shanmugha.nextLong();
+        System.out.println("KYC has submitted by "+name+" further updates you get "+mobile);
+
+
+    
+    }
+    }
+
