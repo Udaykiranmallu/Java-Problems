@@ -1,0 +1,20 @@
+//package Day1;
+
+import java.util.Scanner;
+
+public class Currencyconverter {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the amount in Indian rupees:");
+        double rupees = scan.nextDouble();
+        double dollar = rupees/96.34;
+        System.out.println("Amount in US dollars:$"+dollar);
+        double pound = (rupees*0.0077);
+        System.out.println("Amount in Egypt pound:"+pound);
+        double dinar = (rupees*0.0032);
+        System.out.println("Amount in kuwait dinar:"+dinar);
+        double yuan = (rupees*0.070);
+        System.out.println("Amount in Chinese yuan:"+yuan);
+    
+    }
+}
