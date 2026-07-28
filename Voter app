@@ -1,0 +1,39 @@
+package Day2;
+
+import java.util.Scanner;
+
+public class VoterApp {
+    public static void main(String[] args) {
+        String name="", pan ="", email ="", aadhaar ="", mobile ="";
+        boolean isValid = true;
+        Scanner sscet = new Scanner(System.in);
+        System.out.println("Enter the name");
+        name = sscet.nextLine();
+        System.out.println("Enter the email");
+        email = sscet.next();
+        System.out.println("Enter the Mobile number");
+        mobile = sscet.next();
+        System.out.println("Enter the aadhaar number");
+        aadhaar = sscet.next();
+        System.out.println("Enter the pan number");
+        pan =sscet.next();
+        if(!name.matches("^[A-Za-z ]{5,}$"))
+        
+        {isValid=false;System.out.println("Invalid name");}
+        if(!email.matches("^[a-zA-Z0-9-._]{2,}@[A-Za-z]{3,}+\\.[a-zA-Z]{2,}$"))
+        {isValid=false;System.out.println("Invalid email id");}
+        if(!mobile.matches("^[0-9]{10}$"))
+        {isValid=false;System.out.println("Invalid mobile number");}
+        if(!aadhaar.matches("^[0-9]{12}$"))
+        {isValid=false;System.out.println("Invalid aadhaar number");}
+        if(!pan.matches("^[A-Z]{5}[0-9]{4}[A-Z]{1}$"))
+        {isValid=false;System.out.println("Invalid pan number");}
+        if(isValid)
+            System.out.println(name+"voter application submitted further updates send to your"+mobile+"or"+pan);
+        else System.out.println("Application for voter id is rejected");
+         sscet.close();
+        
+    }
+    
+    
+}
