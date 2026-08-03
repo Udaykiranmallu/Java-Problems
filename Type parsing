@@ -1,0 +1,17 @@
+package Day3;
+//Using desired convertable Wrapper class's parse method
+public class TypeParsingusingString {
+    public static void main(String[] args) {
+        String strwt="74.6",strht="175";
+        //double bmi=(double)strwt/(double)(strht*strht)
+        //camelNotation
+        double weight = Double.parseDouble(strwt);
+        int height = Integer.parseInt(strht);
+        double ht=(double)height/100;
+        double bmi = (double)(weight/(ht*ht));
+        System.out.println("Your bmi is"+bmi);
+        
+
+    }
+    
+}
