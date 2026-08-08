@@ -1,0 +1,24 @@
+package Day4;
+
+import java.util.Scanner;
+
+public class DemoPyramid {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int limit=0;char alpha='Z';
+        System.out.println("Enter the limit:");
+        limit=scan.nextInt();
+        for(int row=1;row<=limit;row++){
+            for(int space=limit;space>row;space--)
+                System.out.print(" ");
+            for(int coloumn=1;coloumn<(row*2);coloumn++){
+                System.out.print(alpha);
+                alpha--;
+            }
+            System.out.println();
+        }
+        scan.close();
+    }
+    
+    
+}
