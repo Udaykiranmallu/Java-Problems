@@ -1,0 +1,24 @@
+package Day4;
+
+import java.util.Scanner;
+
+public class Leetcode258 {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int num=0;
+        System.out.println("Enter the number;");
+        num=scan.nextInt();
+        while(num>10){
+            int sum=0;
+             while(num>0){
+                int rem = num%10;
+                sum=sum+rem;
+                num=num/10;
+            }
+            num=sum;
+        
+        }
+
+    }
+    
+}
