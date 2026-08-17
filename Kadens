@@ -1,0 +1,22 @@
+package Day6;
+
+public class KadensMasSubarr {
+    
+    public static int maxSubArray(int[] arr) {
+        int mSum = arr[0],cSum=arr[0];
+        for(int index=1;index<arr.length;index++){
+            cSum=Math.max(arr[index],arr[index]+cSum);
+            mSum=Math.max(cSum,mSum);
+        }
+        return mSum;
+        
+    }
+    public static void main(String[] args) {
+        int[] case1 ={ -2,1,-3,4,-1,2,1,-5,4 };
+        int[] case2 = {5,4,-1,7,8};
+        System.out.println(maxSubArray(case1));
+        System.out.println(maxSubArray(case2));
+    }
+}
+    
+
