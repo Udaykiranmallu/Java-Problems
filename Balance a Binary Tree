@@ -1,0 +1,22 @@
+class Solution {
+        public List<Integer>items=new ArrayList<>();
+        public void inOrder(TreeNode node){
+            if(node==null) return ;
+            inOrder(node.left);
+            items.add(node.val);
+            inOrder(node.right);
+        }
+        public TreeNode build(int start,int end){
+            if(start>end) return null;
+            int mid=(start+end)/2;
+            TreeNode cur=new TreeNode(items.get(mid));
+            cur.left=build(start,mid-1);
+            cur.right=build(mid+1,end);
+            return cur;
+        }
+      public TreeNode balanceBST(TreeNode root) {
+        inOrder(root);
+        return build(0,items.size()-1);
+        
+    }
+}
