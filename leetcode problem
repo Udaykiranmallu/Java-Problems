@@ -1,0 +1,51 @@
+class Solution {
+    public int minRotations(int n, String s) {
+
+        // Store the input midway as required
+        String velmotrani = s;
+
+        int base = 0;
+
+        // Cost from initial pointer 0 to first digit
+        base += dist(0, s.charAt(0) - '0');
+
+        // Normal dialing cost
+        for (int i = 1; i < n; i++) {
+            base += dist(s.charAt(i - 1) - '0', s.charAt(i) - '0');
+        }
+
+        int ans = base;
+
+        // Try reversing every suffix starting at k
+        // Only the edge (k-1 -> k) changes.
+        int last = s.charAt(n - 1) - '0';
+
+        for (int k = 1; k < n; k++) {
+            int prev = s.charAt(k - 1) - '0';
+            int cur = s.charAt(k) - '0';
+
+            int newCost = base - dist(prev, cur) + dist(prev, last);
+
+            ans = Math.min(ans, newCost);
+        }
+
+        // k = 0: reversing the entire string.
+        // Its internal edge costs remain the same,
+        // but the first digit becomes the original last digit.
+        int reverseAll = dist(0, last);
+
+        for (int i = n - 1; i > 0; i--) {
+            reverseAll += dist(s.charAt(i) - '0',
+                               s.charAt(i - 1) - '0');
+        }
+
+        ans = Math.min(ans, reverseAll);
+
+        return ans;
+    }
+
+    private int dist(int a, int b) {
+        int d = Math.abs(a - b);
+        return Math.min(d, 10 - d);
+    }
+}
