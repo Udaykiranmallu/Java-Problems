@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner (System.in);
+        int ordervalue=sc.nextInt();
+        int distance=sc.nextInt();
+        int weathercode=sc.nextInt();
+        int memberFlage=sc.nextInt();
+
+        int charge =distance <= 3 ? 40 : distance <= 8 ? 70 : 120;
+        if (ordervalue >=1000&& distance<=8)
+        charge=0;
+        charge +=weathercode==1?30:weathercode==2?80:0;
+        if(memberFlage==1)
+        charge-=25;
+        System.out.println(Math.max(charge,0));
+
+    }
+}
