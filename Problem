@@ -1,0 +1,55 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int T = sc.nextInt();
+
+        while (T-- > 0)
+        {
+            int N = sc.nextInt();
+            int M = sc.nextInt();
+
+            String S = sc.next();
+            String L = sc.next();
+
+            boolean[] left = new boolean[26];
+
+            // Mark left-hand characters
+            for (char c : L.toCharArray())
+            {
+                left[c - 'a'] = true;
+            }
+
+            int current = 0;
+            int max = 0;
+            boolean previousHand = left[S.charAt(0) - 'a'];
+
+            for (char c : S.toCharArray())
+            {
+                boolean currentHand = left[c - 'a'];
+
+                if (currentHand == previousHand)
+                {
+                    current++;
+                }
+                else
+                {
+                    current = 1;
+                    previousHand = currentHand;
+                }
+
+                max = Math.max(max, current);
+            }
+
+            System.out.println(max);
+        }
+
+        sc.close();
+    }
+}
