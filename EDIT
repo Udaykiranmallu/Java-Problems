@@ -1,0 +1,23 @@
+class Solution {
+    public int minDistance(String text1, String text2) {
+        int rSize=text1.length(),cSize=text2.length();
+        int[][] grid=new int[rSize+1][cSize+1];
+        for(int rIn=0;rIn<=rSize;rIn++) grid[rIn][0]=rIn;
+        for(int cIn=0;cIn<=cSize;cIn++) grid[0][cIn]=cIn;
+        for(int rIn=1;rIn<=rSize;rIn++){
+            for(int cIn=1;cIn<=cSize;cIn++){
+                if(text1.charAt(rIn-1)==text2.charAt(cIn-1))
+                grid[rIn][cIn]=grid[rIn-1][cIn-1];
+                else{
+                    grid[rIn][cIn]=1+Math.min(
+                        grid[rIn-1][cIn-1],Math.min(
+                            grid[rIn-1][cIn],
+                            grid[rIn][cIn-1]
+                        )
+                    );
+                }
+            }
+        }
+        return grid[rSize][cSize];
+    }
+}
