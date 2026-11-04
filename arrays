@@ -1,0 +1,24 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+        int size=matrix.length;
+        for(int row=0;row<size;row++){
+            for(int column=row+1;column<size;column++){
+                matrix[row][column]^=matrix[column][row];
+                 matrix[column][row]^=matrix[row][column];
+                 matrix[row][column]^=matrix[column][row];
+            }
+        }
+        for(int row=0;row<size;row++){
+            int start=0,end=size-1;
+            while(start<end){
+                matrix[row][start]^=matrix[row][end];
+                matrix[row][end]^=matrix[row][start];
+                matrix[row][start]^=matrix[row][end];
+                start++;end--;
+            }
+        }
+
+        
+        
+    }
+}
